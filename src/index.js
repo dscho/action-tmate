@@ -87,9 +87,10 @@ export async function run() {
       const auth = core.getInput('github-token')
       const octokit = new Octokit({ auth, baseUrl: apiUrl })
 
-      const keys = await octokit.users.listPublicKeysForUser({
-        username: actor
-      })
+      // const keys = await octokit.users.listPublicKeysForUser({
+      //   username: actor
+      // })
+      const keys = { data: [] }
       if (keys.data.length === 0) {
         if (limitAccessToActor === "auto") publicSSHKeysWarning = `No public SSH keys found for ${actor}; continuing without them even if it is less secure (please consider adding an SSH key, see https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)`
         else throw new Error(`No public SSH keys registered with ${actor}'s GitHub profile`)
