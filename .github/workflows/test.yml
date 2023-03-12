@@ -13,5 +13,3 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: dscho/action-tmate@test
-        with:
-          limit-access-to-actor: true
