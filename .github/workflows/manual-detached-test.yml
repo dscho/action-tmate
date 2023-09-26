@@ -5,7 +5,7 @@ on:
     inputs:
       runs-on:
         description: the runners pool to use
-        default: ubuntu-latest
+        default: macos-latest
 
 jobs:
   test:
