@@ -1,9 +1,15 @@
 name: Test detached mode
-on: workflow_dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      runs-on:
+        description: the runners pool to use
+        default: ubuntu-latest
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runs-on }}
     steps:
       - uses: actions/checkout@v3
       - uses: ./
